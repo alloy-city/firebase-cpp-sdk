@@ -117,7 +117,8 @@ def cmake_configure(build_dir, arch, msvc_runtime_library='static',
                                            'vcpkg', 'scripts',
                                            'buildsystems', 'vcpkg.cmake')
   if utils.is_linux_os() and arch == 'x86':
-    toolchainFile = os.path.join(os.getcwd(), 'cmake', 'toolchains', 'linux_32.cmake')
+    toolchainFile= os.path.join(os.getcwd(), 'external', 'vcpkg', 'scripts',
+                                           'buildsystems', 'linux_32.cmake')
   else:
     toolchainFile = vcpkg_toolchain_file_path
   cmd.append('-DCMAKE_TOOLCHAIN_FILE={0}'.format(toolchainFile))

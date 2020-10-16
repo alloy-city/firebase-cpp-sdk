@@ -105,6 +105,10 @@ def vcpkg_copy_custom_triplets():
       shutil.copy(os.path.join(external_dir_path, f),
                   os.path.join(get_vcpkg_root_path(), 'triplets', triplet_file_name))
 
+  toolchain = os.path.join(os.getcwd(), 'cmake', 'toolchains', 'linux_32.cmake')
+  shutil.copy(toolchain,
+      os.path.join(get_vcpkg_root_path(), 'scripts', 'buildsystems', 'linux_32.cmake'))
+
 
 def get_vcpkg_triplet(arch, msvc_runtime_library='static'):
   """ Get vcpkg target triplet (platform definition).
