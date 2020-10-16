@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - feature/support-x86-md-python-build-scripts
-      - feature/x86-support-only
+      - feature/test-x86-only
 
 env:
   CCACHE_DIR: ${{ github.workspace }}/ccache_dir
