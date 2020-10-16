@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - feature/support-x86-md-python-build-scripts
+      - feature/x86-support-only
 
 env:
   CCACHE_DIR: ${{ github.workspace }}/ccache_dir
@@ -17,21 +18,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         build_type: ["Release", "Debug"]
-        architecture: ["x64", "x86"]
-        msvc_runtime: ["static", "dynamic"]
+        architecture: ["x86"]
+        msvc_runtime: ["static"]
         python_version: [3.7]
         include:
-        - os: windows-latest
-          vcpkg_triplet_suffix: "windows-static"
-        - os: windows-latest
-          msvc_runtime: dynamic
-          vcpkg_triplet_suffix: "windows-static-md"
         - os: ubuntu-latest
           vcpkg_triplet_suffix: "linux"
-        - os: macos-latest
-          vcpkg_triplet_suffix: "osx"
 
         exclude:
         - os: macos-latest
