@@ -116,7 +116,7 @@ def cmake_configure(build_dir, arch, msvc_runtime_library='static',
   vcpkg_toolchain_file_path = os.path.join(os.getcwd(), 'external',
                                            'vcpkg', 'scripts',
                                            'buildsystems', 'vcpkg.cmake')
-  if utils.is_linux() and arch == 'x86':
+  if utils.is_linux_os() and arch == 'x86':
     toolchainFile = os.path.join(os.getcwd(), 'cmake', 'toolchains', 'linux_32.cmake')
   else:
     toolchainFile = vcpkg_toolchain_file_path
