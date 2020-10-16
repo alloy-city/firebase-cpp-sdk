@@ -43,6 +43,8 @@ def install_x86_support_libraries():
   """Install support libraries needed to build x86 on x86_64 hosts."""
   if utils.is_linux_os():
     utils.run_command(['apt', 'install', 'gcc-multilib', 'g++-multilib', 'libglib2.0-dev:i386'], as_root=True)
+    utils.run_command(['ln', '-s', '/usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h',
+                       '/usr/include/glib-2.0/glibconfig.h'], as_root=True)
 
 
 def install_cpp_dependencies_with_vcpkg(arch, msvc_runtime_library):
