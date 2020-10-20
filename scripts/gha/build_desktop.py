@@ -46,6 +46,7 @@ def install_x86_support_libraries():
     utils.run_command(['dpkg', '--add-architecture', 'i386'], as_root=True)
     utils.run_command(['apt', 'update'], as_root=True)
     utils.run_command(['apt', 'install', 'libglib2.0-dev:i386'], as_root=True)
+    utils.run_command(['apt', 'install', 'libsecret-1-dev:i386'], as_root=True)
 
 
 def install_cpp_dependencies_with_vcpkg(arch, msvc_runtime_library):
